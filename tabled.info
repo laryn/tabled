@@ -1,0 +1,7 @@
+type = module
+name = Tabled
+description = Make data tables more accessible by applying the Tabled script.
+backdrop = 1.x
+
+tags[] = Accessibility
+tags[] = Tables

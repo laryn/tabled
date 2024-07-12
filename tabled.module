@@ -1,0 +1,38 @@
+<?php
+/**
+ * @file
+ * Bundle and activate the Tabled plugin.
+ */
+
+/**
+ * Implements hook_library_info().
+ *
+ */
+function tabled_library_info() {
+  $path = backdrop_get_path('module', 'tabled') . '/';
+  $libraries['tabled'] = array(
+    'title' => 'Tabled',
+    'website' => 'https://github.com/Lullabot/tabled',
+    'version' => 'dev',
+    'js' => array(
+      $path . 'library/dist/tabled.js' => array(),
+    ),
+    'css' => array(
+      $path . 'library/dist/theme.css' => array(),
+      $path . 'library/dist/styles.css' => array(),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function tabled_preprocess_page(&$variables) {
+  $current_path = current_path();
+  if (!path_is_admin($current_path)) {
+    $module_path = backdrop_get_path('module', 'tabled') . '/';
+    backdrop_add_library('tabled', 'tabled');
+    backdrop_add_js($module_path . 'js/tabled_init.js', array('scope' => 'footer'));
+  }
+}
