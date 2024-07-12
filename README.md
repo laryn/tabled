@@ -1,6 +1,6 @@
 # Tabled
 
-This module activates the "[https://github.com/Lullabot/tabled](Tabled)" plugin
+This module activates the [Tabled](https://github.com/Lullabot/tabled) plugin
 to attempt to transform data tables in your content to be more accessible.
 
 ## Installation
