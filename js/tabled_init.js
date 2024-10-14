@@ -10,7 +10,7 @@
       let $excludedSelectors = Backdrop.settings.tabled.excluded_selectors;
       if ($excludedSelectors) {
         $excludedSelectors.forEach(function (selector) {
-          $('table' + selector).addClass('untabled');
+          $(selector).addClass('untabled');
         });
       }
       $('table:not(.untabled)').once('tabled', context).each(function () {
