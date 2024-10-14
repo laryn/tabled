@@ -50,7 +50,6 @@ function tabled_library_info() {
       $path . 'library/dist/tabled.js' => array(),
     ),
     'css' => array(
-      $path . 'library/dist/theme.css' => array(),
       $path . 'library/dist/styles.css' => array(),
     ),
   );
@@ -63,6 +62,15 @@ function tabled_library_info() {
 function tabled_admin_settings($form, &$form_state) {
 
   $config = config('tabled.settings');
+
+  // Add a checkbox for whether to include library's theme CSS.
+  $form['#config'] = 'tabled.settings';
+  $form['add_theme_css'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Include Tabled library theme CSS'),
+    '#default_value' => $config->get('add_theme_css'),
+    '#description' => t('Check this box to include the Tabled theme CSS. This is optional as the library\'s core CSS will be loaded either way.'),
+  );
 
   $form['excluded_selectors'] = array(
     '#type' => 'textarea',
@@ -78,21 +86,8 @@ function tabled_admin_settings($form, &$form_state) {
     '#value' => t('Save Configuration'),
   );
 
-  return $form;
+  return system_settings_form($form);
 }
-
-/**
- *
- */
-function tabled_admin_settings_submit ($form, &$form_state) {
-  $config = config('tabled.settings');
-  $values = $form_state['values'];
-  $config->set('excluded_selectors', trim(check_plain($values['excluded_selectors'])));
-  $config->save();
-
-  backdrop_set_message(t('Settings have been saved.'));
-}
-
 
 /**
  * Implements hook_preprocess_page().
@@ -117,6 +112,9 @@ function tabled_preprocess_page(&$variables) {
 
     $module_path = backdrop_get_path('module', 'tabled') . '/';
     backdrop_add_library('tabled', 'tabled');
+    if ($config->get('add_theme_css')) {
+      backdrop_add_css($module_path . 'library/dist/theme.css');
+    }
     backdrop_add_js($module_path . 'js/tabled_init.js', array('scope' => 'footer'));
   }
 }

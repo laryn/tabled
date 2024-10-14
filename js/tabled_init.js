@@ -15,6 +15,7 @@
       }
       $('table:not(.untabled)').once('tabled', context).each(function () {
         var tableInstance = $(this);
+        tableInstance.addClass('tabled');
         new Tabled({ table: tableInstance[ 0 ], failClass: 'tabled--stacked' });
       });
     }
