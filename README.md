@@ -10,10 +10,11 @@ to attempt to transform data tables in your content to be more accessible.
 
 ## Usage
 
-  - There are currently no configuration options via the UI. Simply enable the
-  module to activate the plugin. Activation will be attempted for all tables
-  except those that have been given the class `untabled`, only on non-admin
-  pages.
+  - Simply enable the module to activate the plugin. Activation will be
+  attempted for all tables except those that have been given the class
+  `untabled`, only on non-admin pages. Additional jQuery style selectors to
+  exclude can be added at *Administer > Configuration > User interface > Tabled*
+  (**admin/config/user-interface/tabled**).
   - If the table cannot be converted into Tabled format due to unmet
   requirements or faulty HTML code, it will be given the class `tabled--stacked`
   and displayed using "Stacked rows" mode on smaller widths.
