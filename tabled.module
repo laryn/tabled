@@ -45,9 +45,9 @@ function tabled_library_info() {
   $libraries['tabled'] = array(
     'title' => 'Tabled',
     'website' => 'https://github.com/Lullabot/tabled',
-    'version' => 'dev',
+    'version' => '1.0.1',
     'js' => array(
-      $path . 'library/dist/tabled.js' => array(),
+      $path . 'library/dist/tabled.min.js' => array(),
     ),
     'css' => array(
       $path . 'library/dist/styles.css' => array(),

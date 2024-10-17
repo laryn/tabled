@@ -67,9 +67,9 @@ Bugs, UI-config requests and other feature requests should be reported in the
  - The Tabled plugin was developed and is maintained by a team at
  [Lullabot](https://lullabot.com), including
  [Javier Reartes](https://github.com/javi-er),  Stephanie Ganzer and Kat Shaw.
- The plugin is released under the GPL v3 license.
+ The plugin is released under the GPL v2 license.
 
 ## License
 
-This project is GPL v3 software. See the LICENSE.txt file in this directory for
+This project is GPL v2 software. See the LICENSE.txt file in this directory for
 complete text.
